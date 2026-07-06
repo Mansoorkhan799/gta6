@@ -62,11 +62,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bebas.variable} ${inter.variable} h-full scroll-smooth`}
+      className={`${bebas.variable} ${inter.variable} antialiased`}
       suppressHydrationWarning
     >
       <body
-        className="min-h-full flex flex-col font-sans antialiased"
+        className="min-h-screen flex flex-col font-sans"
         suppressHydrationWarning
       >
         <JsonLd data={[websiteJsonLd(), organizationJsonLd(), gta6SoftwareApplicationJsonLd()]} />

@@ -17,7 +17,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 border-b border-border/50 bg-background/90 backdrop-blur-xl supports-[padding:max(0px)]:pt-[env(safe-area-inset-top)]">
+    <header className="fixed top-0 left-0 right-0 z-40 border-b border-border/50 bg-background/95 pt-[env(safe-area-inset-top)]">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6 lg:px-8">
         <Link
           href="/"
@@ -84,7 +84,7 @@ export function Header() {
             onClick={() => setOpen(false)}
           />
           <nav
-            className="relative z-50 max-h-[calc(100dvh-3.5rem)] overflow-y-auto border-t border-border bg-background px-4 py-4 sm:max-h-[calc(100dvh-4rem)] xl:hidden"
+            className="relative z-50 max-h-[calc(100svh-3.5rem)] overflow-y-auto border-t border-border bg-background px-4 py-4 sm:max-h-[calc(100svh-4rem)] xl:hidden"
             aria-label="Mobile navigation"
           >
             {navLinks.map((link) => (

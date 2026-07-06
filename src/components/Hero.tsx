@@ -5,7 +5,7 @@ import { siteAssets } from "@/lib/site-assets";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden pt-14 sm:pt-16">
+    <section className="relative flex min-h-svh items-center justify-center overflow-hidden pt-14 sm:min-h-screen sm:pt-16">
       <Image
         src={siteAssets.heroBackground}
         alt="Grand Theft Auto VI — Vice City Leonida artwork"
