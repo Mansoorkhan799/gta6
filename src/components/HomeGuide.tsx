@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { GuideSection } from "@/components/motion/GuideSection";
 import {
   homeGuideMeta,
   factSheet,
@@ -79,7 +80,7 @@ export function HomeGuide() {
   return (
     <article className="bg-surface">
       {/* Overview */}
-      <section id="overview" className="section-padding border-b border-border">
+      <GuideSection id="overview" className="section-padding border-b border-border">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeading label="Comprehensive Report" title="THE ULTIMATE GUIDE TO GTA 6" />
           <div className="prose-gta space-y-4">
@@ -89,10 +90,10 @@ export function HomeGuide() {
           </div>
           <TableOfContents />
         </div>
-      </section>
+      </GuideSection>
 
       {/* Fact Sheet */}
-      <section id="fact-sheet" className="section-padding border-b border-border">
+      <GuideSection id="fact-sheet" className="section-padding border-b border-border">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Official Data"
@@ -120,10 +121,10 @@ export function HomeGuide() {
             </table>
           </div>
         </div>
-      </section>
+      </GuideSection>
 
       {/* Download Guide Intro */}
-      <section id="download-guide" className="section-padding border-b border-border">
+      <GuideSection id="download-guide" className="section-padding border-b border-border">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeading label="Safety First" title="GTA 6 DOWNLOAD GUIDE" />
           <div className="prose-gta space-y-4">
@@ -173,10 +174,10 @@ export function HomeGuide() {
             </ul>
           </div>
         </div>
-      </section>
+      </GuideSection>
 
       {/* Platform Downloads */}
-      <section id="platform-download" className="section-padding border-b border-border">
+      <GuideSection id="platform-download" className="section-padding border-b border-border">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeading label="Step-by-Step" title="HOW TO DOWNLOAD GTA 6" />
           <div className="grid gap-6 md:grid-cols-2">
@@ -197,10 +198,10 @@ export function HomeGuide() {
             ))}
           </div>
         </div>
-      </section>
+      </GuideSection>
 
       {/* PC Download */}
-      <section id="pc-download" className="section-padding border-b border-border bg-background">
+      <GuideSection id="pc-download" className="section-padding border-b border-border bg-background">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeading label="For PC Players" title="GTA 6 PC DOWNLOAD" />
           <p className="mb-8 text-muted">
@@ -237,10 +238,10 @@ export function HomeGuide() {
             </Link>
           </div>
         </div>
-      </section>
+      </GuideSection>
 
       {/* Storage */}
-      <section id="storage" className="section-padding border-b border-border">
+      <GuideSection id="storage" className="section-padding border-b border-border">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeading label="File Size" title="DOWNLOAD SIZE & STORAGE" />
           <p className="mb-8 text-muted">
@@ -269,10 +270,10 @@ export function HomeGuide() {
             {ssdBenefits.join(", ")}.
           </p>
         </div>
-      </section>
+      </GuideSection>
 
       {/* Release Timeline */}
-      <section id="release-timeline" className="section-padding border-b border-border bg-background">
+      <GuideSection id="release-timeline" className="section-padding border-b border-border bg-background">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeading label="Release Date" title="GTA 6 RELEASE TIMELINE" />
           <p className="mb-8 text-muted">
@@ -304,10 +305,10 @@ export function HomeGuide() {
             ))}
           </div>
         </div>
-      </section>
+      </GuideSection>
 
       {/* Pre-Orders */}
-      <section id="pre-orders" className="section-padding border-b border-border">
+      <GuideSection id="pre-orders" className="section-padding border-b border-border">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeading label="Pricing" title="PRE-ORDERS & EDITIONS" />
           <p className="mb-8 text-muted">
@@ -338,10 +339,10 @@ export function HomeGuide() {
             ))}
           </div>
         </div>
-      </section>
+      </GuideSection>
 
       {/* Hardware */}
-      <section id="hardware" className="section-padding border-b border-border bg-background">
+      <GuideSection id="hardware" className="section-padding border-b border-border bg-background">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeading label="Next-Gen" title="HARDWARE & THE PC QUESTION" />
           <p className="mb-8 text-muted">
@@ -384,10 +385,10 @@ export function HomeGuide() {
             This persistent delay is a deliberate optimization strategy — consoles offer fixed hardware targets, while PC requires a standalone optimization cycle for unlocked framerates, ultra-wide displays, and modding frameworks.
           </p>
         </div>
-      </section>
+      </GuideSection>
 
       {/* Leonida */}
-      <section id="leonida" className="section-padding border-b border-border">
+      <GuideSection id="leonida" className="section-padding border-b border-border">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeading label="Open World" title="LEONIDA & VICE CITY" />
           <p className="mb-8 text-muted">
@@ -413,10 +414,10 @@ export function HomeGuide() {
             ))}
           </div>
         </div>
-      </section>
+      </GuideSection>
 
       {/* Characters */}
-      <section id="characters" className="section-padding border-b border-border bg-background">
+      <GuideSection id="characters" className="section-padding border-b border-border bg-background">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeading label="Story" title="LUCIA & JASON" />
           <p className="mb-8 text-muted">
@@ -449,20 +450,20 @@ export function HomeGuide() {
             ))}
           </div>
         </div>
-      </section>
+      </GuideSection>
 
       {/* Online */}
-      <section id="online" className="section-padding border-b border-border">
+      <GuideSection id="online" className="section-padding border-b border-border">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeading label="Multiplayer" title="WHAT ABOUT GTA 6 ONLINE?" />
           <p className="leading-relaxed text-muted">
             While Rockstar Games has confirmed that multiplayer development will continue to evolve as a major component of the GTA 6 project, they have not yet detailed an official &quot;GTA Online 2&quot; feature set. Because the current iteration of GTA Online serves as a massive financial pillar for Take-Two Interactive, more concrete multiplayer showcases are expected closer to the fall launch window.
           </p>
         </div>
-      </section>
+      </GuideSection>
 
       {/* Open World Landscape / Samson */}
-      <section id="open-world" className="section-padding border-b border-border bg-background">
+      <GuideSection id="open-world" className="section-padding border-b border-border bg-background">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeading label="Industry Context" title="THE CHANGING OPEN-WORLD LANDSCAPE" />
           <p className="mb-4 text-muted">
@@ -502,10 +503,10 @@ export function HomeGuide() {
             ))}
           </div>
         </div>
-      </section>
+      </GuideSection>
 
       {/* Summary */}
-      <section id="summary" className="section-padding">
+      <GuideSection id="summary" className="section-padding">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeading label="Final Word" title="A LANDMARK MOMENT" />
           <div className="prose-gta space-y-4">
@@ -520,7 +521,7 @@ export function HomeGuide() {
             </p>
           </div>
         </div>
-      </section>
+      </GuideSection>
     </article>
   );
 }

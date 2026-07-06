@@ -3,11 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { navLinks } from "@/lib/site-config";
 import { siteAssets } from "@/lib/site-assets";
+import { defaultTransition } from "@/lib/motion";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -17,7 +20,12 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 border-b border-border/50 bg-background/95 pt-[env(safe-area-inset-top)]">
+    <motion.header
+      initial={reducedMotion ? false : { y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ ...defaultTransition, duration: 0.5 }}
+      className="fixed top-0 left-0 right-0 z-40 border-b border-border/50 bg-background/95 pt-[env(safe-area-inset-top)]"
+    >
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6 lg:px-8">
         <Link
           href="/"
@@ -75,38 +83,62 @@ export function Header() {
         </button>
       </div>
 
-      {open && (
-        <>
-          <button
-            type="button"
-            className="fixed inset-0 top-14 z-40 bg-black/60 backdrop-blur-sm sm:top-16 xl:hidden"
-            aria-label="Close menu overlay"
-            onClick={() => setOpen(false)}
-          />
-          <nav
-            className="relative z-50 max-h-[calc(100svh-3.5rem)] overflow-y-auto border-t border-border bg-background px-4 py-4 sm:max-h-[calc(100svh-4rem)] xl:hidden"
-            aria-label="Mobile navigation"
-          >
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="block min-h-[44px] rounded px-3 py-3 text-sm font-medium uppercase tracking-wider text-muted transition-colors hover:bg-surface-elevated hover:text-foreground"
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/gta6-download"
-              className="mt-3 flex min-h-[44px] items-center justify-center rounded bg-accent-pink px-5 py-3 text-sm font-bold uppercase tracking-wider text-black"
+      <AnimatePresence>
+        {open && (
+          <>
+            <motion.button
+              type="button"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 top-14 z-40 bg-black/60 backdrop-blur-sm sm:top-16 xl:hidden"
+              aria-label="Close menu overlay"
               onClick={() => setOpen(false)}
+            />
+            <motion.nav
+              initial={reducedMotion ? false : { opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              className="relative z-50 overflow-hidden border-t border-border bg-background xl:hidden"
+              aria-label="Mobile navigation"
             >
-              Get GTA 6
-            </Link>
-          </nav>
-        </>
-      )}
-    </header>
+              <div className="max-h-[calc(100svh-3.5rem)] overflow-y-auto px-4 py-4 sm:max-h-[calc(100svh-4rem)]">
+                {navLinks.map((link, index) => (
+                  <motion.div
+                    key={link.href}
+                    initial={reducedMotion ? false : { opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.25 }}
+                  >
+                    <Link
+                      href={link.href}
+                      className="block min-h-[44px] rounded px-3 py-3 text-sm font-medium uppercase tracking-wider text-muted transition-colors hover:bg-surface-elevated hover:text-foreground"
+                      onClick={() => setOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                ))}
+                <motion.div
+                  initial={reducedMotion ? false : { opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navLinks.length * 0.05, duration: 0.25 }}
+                >
+                  <Link
+                    href="/gta6-download"
+                    className="mt-3 flex min-h-[44px] items-center justify-center rounded bg-accent-pink px-5 py-3 text-sm font-bold uppercase tracking-wider text-black"
+                    onClick={() => setOpen(false)}
+                  >
+                    Get GTA 6
+                  </Link>
+                </motion.div>
+              </div>
+            </motion.nav>
+          </>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }

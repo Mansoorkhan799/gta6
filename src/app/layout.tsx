@@ -3,6 +3,8 @@ import { Bebas_Neue, Inter } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { MotionProvider } from "@/components/motion/MotionProvider";
+import { SmoothScrollHandler } from "@/components/motion/SmoothScrollHandler";
 import { JsonLd } from "@/components/JsonLd";
 import {
   createMetadata,
@@ -70,11 +72,14 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <JsonLd data={[websiteJsonLd(), organizationJsonLd(), gta6SoftwareApplicationJsonLd()]} />
-        <div className="grain-overlay" aria-hidden="true" />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <ScrollToTop />
+        <MotionProvider>
+          <SmoothScrollHandler />
+          <div className="grain-overlay" aria-hidden="true" />
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <ScrollToTop />
+        </MotionProvider>
       </body>
     </html>
   );
