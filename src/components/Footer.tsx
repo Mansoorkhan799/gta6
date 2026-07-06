@@ -85,9 +85,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h3 className="font-display text-lg tracking-wider">Community</h3>
-            <SocialLinks variant="list" className="mt-4" />
-            <h3 className="mt-8 font-display text-lg tracking-wider">Official</h3>
+            <h3 className="font-display text-lg tracking-wider">Official</h3>
             <ul className="mt-4 space-y-2">
               <li>
                 <a
