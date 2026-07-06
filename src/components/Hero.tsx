@@ -13,8 +13,8 @@ export function Hero() {
   return (
     <section className="relative flex min-h-svh items-center justify-center overflow-hidden pt-14 sm:min-h-screen sm:pt-16">
       <motion.div
-        className="absolute inset-0"
-        initial={reducedMotion ? false : { scale: 1.08 }}
+        className="absolute inset-0 bg-black"
+        initial={reducedMotion ? false : { scale: 1.03 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.4, ease: [0.25, 0.1, 0.25, 1] }}
       >
@@ -25,7 +25,7 @@ export function Hero() {
           priority
           quality={85}
           sizes="100vw"
-          className="object-cover object-[center_25%] sm:object-center"
+          className="object-cover object-top"
         />
       </motion.div>
 
