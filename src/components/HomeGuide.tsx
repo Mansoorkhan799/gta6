@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { GuideSection } from "@/components/motion/GuideSection";
+import { TableOfContents } from "@/components/TableOfContents";
 import {
   homeGuideMeta,
   factSheet,
@@ -32,47 +33,6 @@ function SectionHeading({ label, title }: { label: string; title: string }) {
       <p className="section-label text-accent-teal">{label}</p>
       <h2 className="display-heading mt-2 tracking-wider">{title}</h2>
     </div>
-  );
-}
-
-function TableOfContents() {
-  const links = [
-    { href: "#overview", label: "Overview" },
-    { href: "#fact-sheet", label: "Official Fact Sheet" },
-    { href: "#download-guide", label: "Download Guide" },
-    { href: "/gta6-download", label: "Full Download Page" },
-    { href: "/gta6-file-size", label: "File Size Guide" },
-    { href: "#platform-download", label: "Platform Downloads" },
-    { href: "#pc-download", label: "PC Download" },
-    { href: "#storage", label: "Storage Requirements" },
-    { href: "#release-timeline", label: "Release Timeline" },
-    { href: "/gta6-release-date", label: "Release Date Page" },
-    { href: "/gta6-pc-release-date", label: "PC Release Date" },
-    { href: "/gta6-pre-order", label: "Pre-Orders & Pricing" },
-    { href: "#hardware", label: "Hardware & PC Delay" },
-    { href: "#leonida", label: "Leonida & Vice City" },
-    { href: "#characters", label: "Lucia & Jason" },
-    { href: "#online", label: "GTA 6 Online" },
-    { href: "#open-world", label: "Open-World Landscape" },
-    { href: "#summary", label: "Summary" },
-  ];
-
-  return (
-    <nav aria-label="Table of contents" className="rounded-lg border border-border bg-surface-elevated p-6">
-      <h2 className="font-display text-xl tracking-wider">IN THIS GUIDE</h2>
-      <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-        {links.map((link) => (
-          <li key={link.href}>
-            <a
-              href={link.href}
-              className="text-sm text-muted transition-colors hover:text-accent-pink"
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
   );
 }
 
