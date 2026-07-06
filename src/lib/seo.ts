@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { siteConfig } from "./site-config";
+import { siteConfig, socialLinks } from "./site-config";
 import { siteAssets } from "./site-assets";
 
 type PageSEO = {
@@ -116,7 +116,7 @@ export function organizationJsonLd() {
     url: siteConfig.url,
     logo: `${siteConfig.url}${siteAssets.logo}`,
     description: siteConfig.description,
-    sameAs: [],
+    sameAs: socialLinks.map((link) => link.href),
   };
 }
 

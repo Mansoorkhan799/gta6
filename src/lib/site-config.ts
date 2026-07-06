@@ -1,3 +1,30 @@
+export const socialLinks = [
+  {
+    name: "X (Twitter)",
+    label: "GTA 6 Info on X",
+    href: "https://x.com/GTASixInfo",
+    icon: "x",
+  },
+  {
+    name: "Instagram",
+    label: "Grand Theft Auto VI on Instagram",
+    href: "https://www.instagram.com/grandtheftvi/",
+    icon: "instagram",
+  },
+  {
+    name: "Facebook",
+    label: "GTA 6 News Facebook Group",
+    href: "https://www.facebook.com/groups/GTA6news/",
+    icon: "facebook",
+  },
+  {
+    name: "LinkedIn",
+    label: "GTA 6 discussion on LinkedIn",
+    href: "https://www.linkedin.com/posts/ashutosh-kumar-singh951_grand-theft-auto-vi-is-one-of-the-games-i-activity-7470631297946865664-ZQYU",
+    icon: "linkedin",
+  },
+] as const;
+
 export const siteConfig = {
   name: "GTA6 For PC",
   domain: "gta6forpc.org",
@@ -37,7 +64,12 @@ export const siteConfig = {
     ultimate: "$99.99",
   },
   social: {
-    twitter: "@gta6forpc",
+    twitter: "@GTASixInfo",
+    x: "https://x.com/GTASixInfo",
+    instagram: "https://www.instagram.com/grandtheftvi/",
+    facebook: "https://www.facebook.com/groups/GTA6news/",
+    linkedin:
+      "https://www.linkedin.com/posts/ashutosh-kumar-singh951_grand-theft-auto-vi-is-one-of-the-games-i-activity-7470631297946865664-ZQYU",
   },
   author: "GTA6 For PC Team",
 } as const;
