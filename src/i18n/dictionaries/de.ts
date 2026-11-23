@@ -1,0 +1,154 @@
+import type { Dictionary } from "./types";
+
+const de: Dictionary = {
+  meta: {
+    siteName: "GTA6 For PC",
+    homeTitle: "GTA 6 For PC — Release-Guide, Reviews & PC-Status",
+    homeDescription:
+      "Grand Theft Auto VI ist auf PS5 und Xbox draußen. Reviews, Leonida-Karte, Editionen, Kaufguide und sicherer PC-Release-Tracker.",
+  },
+  nav: {
+    home: "Start",
+    pc: "PC",
+    ps5: "PS5",
+    preOrder: "Vorbestellung",
+    leaks: "Leaks",
+    buy: "Kaufen",
+    reviews: "Reviews",
+    news: "News",
+    buyCta: "GTA 6 kaufen",
+  },
+  footer: {
+    quickLinks: "Schnelllinks",
+    legal: "Rechtliches",
+    official: "Offiziell",
+    follow: "Folgen",
+    disclaimer:
+      "Inoffizielle Fan-Seite. Grand Theft Auto VI ist eine Marke von Rockstar Games. Keine Verbindung zu Rockstar oder Take-Two.",
+    regions: "Sprachen / Regionen",
+  },
+  common: {
+    quickAnswer: "Kurzantwort",
+    relatedGuides: "Verwandte Guides",
+    readMore: "Weiterlesen",
+    home: "Start",
+    language: "Sprache",
+  },
+  hero: {
+    eyebrow: "Grand Theft Auto VI — Jetzt auf Konsolen · PC-Hub",
+    titleBefore: "GTA",
+    titleAccent: "VI",
+    subtitle:
+      "Reviews, Leonida-Karte, Gameplay, Editionen und der komplette GTA-6-PC-Tracker — sichere Download-Tipps, während Konsolen schon in Vice City sind.",
+    ctaBuy: "Wo kaufen",
+    ctaPc: "PC-Release-Tracker",
+    statusLabel: "Status",
+    statusValue: "Jetzt auf PS5 & Xbox",
+    criticsLabel: "Kritiker",
+    criticsValue: "99 Metacritic",
+    pcLabel: "PC",
+    pcValue: "Nicht angekündigt",
+  },
+  cta: {
+    headingBefore: "Spielen auf der ",
+    headingAccent: "Konsole",
+    body: "GTA 6 ist auf PS5 und Xbox draußen. Kauf in offiziellen Stores oder folge dem PC-Tracker, bis Rockstar Windows ankündigt.",
+    buy: "Wo kaufen",
+    pcTracker: "PC-Release-Tracker",
+  },
+  home: {
+    guideTitle: "Der ultimative GTA-6-Guide",
+    guideIntro: [
+      "Grand Theft Auto VI ist seit dem 19. November 2026 weltweit auf PlayStation 5 und Xbox Series X|S erhältlich. Kritikerwertungen sind extrem hoch; PC ist offiziell noch nicht da.",
+      "Dieser Hub deckt Reviews, Karte, Gameplay, Editionen und die sichere PC-Wartezeit ab.",
+    ],
+    factSheetTitle: "GTA 6: Offizielles Fact Sheet",
+    factSheetLabel: "Offizielle Daten",
+  },
+  pages: {
+    pc: {
+      title: "GTA 6 auf PC",
+      metaTitle: "Wann kommt GTA 6 auf PC? Release, Steam & Status",
+      metaDescription:
+        "GTA 6 PC Release: noch kein offizielles Datum. Status nach Konsolenlaunch und Warnung vor Fake-Downloads.",
+      h1: "GTA 6 AUF PC",
+      subtitle: "Wann GTA 6 auf PC kommt und wie du sicher wartest.",
+      quickQ: "Wann kommt GTA 6 auf PC?",
+      quickA:
+        "Es gibt noch kein offizielles PC-Datum. GTA 6 ist seit dem 19. November 2026 auf PS5 und Xbox Series X|S. Eine Windows-Version wurde noch nicht angekündigt.",
+      keyFactsTitle: "Wichtige Fakten",
+      keyFacts: [
+        "Jetzt verfügbar: PlayStation 5, Xbox Series X|S (19. November 2026)",
+        "PC-Status: Offiziell unangekündigt",
+        "Gerücht: Q1 2027 (unbestätigt)",
+        "Historisches Muster: ~12–18 Monate nach Konsole",
+        "Sicherer Weg: Auf Rockstar warten → Launcher / Steam / Epic",
+      ],
+      sections: [
+        {
+          h2: "Kommt GTA 6 auf den PC?",
+          body: "Rockstar bringt Flagschiff-Titel historisch später auf Windows. Für GTA 6 gibt es noch keine offizielle PC-Produktseite.",
+        },
+        {
+          h2: "Wann ist der GTA 6 PC Release?",
+          body: "Kein offizielles Datum. Ein Bericht von Oktober 2026 nannte Q1 2027; Rockstar hat das nicht bestätigt.",
+        },
+      ],
+      faqs: [
+        { q: "Wann kommt GTA 6 auf PC?", a: "Noch nicht angekündigt. Konsolen starteten am 19. November 2026." },
+        { q: "Ist GTA 6 schon auf PC spielbar?", a: "Nein. Nur PS5 und Xbox Series X|S." },
+      ],
+    },
+    ps5: {
+      metaTitle: "GTA 6 PS5 — Jetzt erhältlich, Pro Enhanced, Preis",
+      metaDescription: "GTA 6 auf PS5: Launch, Pro Enhanced, Preis und Speicher.",
+      h1: "GTA 6 PS5",
+      subtitle: "PlayStation-5-Verfügbarkeit, Pro Enhanced, Editionen und Installationsgröße.",
+      quickQ: "Gibt es GTA 6 auf PS5?",
+      quickA: "Ja. Launch am 19. November 2026 auf PlayStation 5 (PS5 Pro Enhanced). Nicht auf PS4.",
+    },
+    preOrder: {
+      metaTitle: "GTA 6 vorbestellen — Preis, Boni & jetzt kaufen",
+      metaDescription: "Vorbestell-Historie und Kaufwege nach dem Launch.",
+      h1: "GTA 6 VORBESTELLEN",
+      subtitle: "Editionspreise, Boni und wo du jetzt kaufst.",
+      quickQ: "Kann ich GTA 6 noch vorbestellen?",
+      quickA: "Das Spiel ist bereits draußen — kaufe Standard ($79.99) oder Ultimate ($99.99) in offiziellen Stores.",
+    },
+    leaks: {
+      metaTitle: "GTA 6 Leaks — Hack 2022 & was heute zählt",
+      metaDescription: "FAQ zu GTA-6-Leaks und Tipps nach dem Launch.",
+      h1: "GTA 6 LEAKS",
+      subtitle: "Was 2022 gestohlen wurde, was Rockstar bestätigte und was nach dem Launch zählt.",
+      quickQ: "Was waren die GTA 6 Leaks?",
+      quickA:
+        "Bestätigt ist der Rockstar-Einbruch im September 2022 mit frühem Footage. Nach dem Launch im November 2026 zählen offizielle News mehr als anonyme Dumps.",
+    },
+    buy: {
+      metaTitle: "GTA 6 kaufen — PS5, Xbox & offizielle Stores",
+      metaDescription: "Offizielle Kaufkanäle für Grand Theft Auto VI.",
+      h1: "WO KAUFEN",
+      subtitle: "Offizielle Shops für PS5 und Xbox Series X|S.",
+      quickQ: "Wo sollte ich GTA 6 kaufen?",
+      quickA: "PlayStation Store, Xbox Store, Rockstar Games Store oder vertrauenswürdige Händler — keine Fake-PC-Keys.",
+    },
+    reviews: {
+      metaTitle: "GTA 6 Reviews — Metacritic & Kritikerkonsens",
+      metaDescription: "Review-Überblick zu GTA 6.",
+      h1: "GTA 6 REVIEWS",
+      subtitle: "Kritikerwertungen und Konsens nach dem Launch.",
+      quickQ: "Wie sind die GTA 6 Reviews?",
+      quickA: "Kritiker liegen bei etwa 99 auf Metacritic, oft mit Bestnoten großer Outlets.",
+    },
+    news: {
+      metaTitle: "GTA 6 News — Launch-Updates & PC",
+      metaDescription: "Aktuelle GTA-6-News für Konsolen- und PC-Spieler.",
+      h1: "GTA 6 NEWS",
+      subtitle: "Launch-Coverage, PC-Watch und verifizierte Updates.",
+      quickQ: "Wo finde ich GTA 6 News?",
+      quickA: "Rockstar Newswire für Offizielles — dieser Hub trackt Launch, PC-Status und Download-Warnungen.",
+    },
+  },
+};
+
+export default de;
