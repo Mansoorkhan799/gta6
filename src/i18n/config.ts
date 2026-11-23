@@ -1,6 +1,6 @@
 export const defaultLocale = "en" as const;
 
-/** URL prefixes: /id, /br, /de … */
+/** URL prefixes for non-default locales: /id, /br, /de … English stays at `/`. */
 export const locales = [
   "en",
   "id",
@@ -16,6 +16,9 @@ export const locales = [
 ] as const;
 
 export type Locale = (typeof locales)[number];
+
+/** Locales that appear as a URL segment (everything except English). */
+export const prefixedLocales = locales.filter((l) => l !== defaultLocale);
 
 export const localeMeta: Record<
   Locale,
@@ -39,8 +42,12 @@ export function isLocale(value: string): value is Locale {
   return (locales as readonly string[]).includes(value);
 }
 
+/** Public URL path. English has no prefix — keeps indexed `/` URLs. */
 export function localePath(locale: Locale, path = "") {
   const normalized = path === "/" ? "" : path.startsWith("/") ? path : `/${path}`;
+  if (locale === defaultLocale) {
+    return normalized || "/";
+  }
   return `/${locale}${normalized}`;
 }
 

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { locales, localeMeta, stripLocaleFromPathname, type Locale } from "@/i18n/config";
+import { locales, localeMeta, localePath, stripLocaleFromPathname, type Locale } from "@/i18n/config";
 
 export function LanguageSwitcher({ current, label }: { current: Locale; label: string }) {
   const pathname = usePathname() || "/";
@@ -15,7 +15,7 @@ export function LanguageSwitcher({ current, label }: { current: Locale; label: s
         {locales.map((locale) => (
           <li key={locale}>
             <Link
-              href={`/${locale}${path === "/" ? "" : path}`}
+              href={localePath(locale, path === "/" ? "" : path)}
               className={`rounded border px-2.5 py-1 text-[11px] uppercase tracking-wider transition-colors ${
                 locale === current
                   ? "border-accent-pink text-accent-pink"

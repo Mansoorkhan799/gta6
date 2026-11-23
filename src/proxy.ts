@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { defaultLocale, locales } from "@/i18n/config";
+import { defaultLocale, prefixedLocales } from "@/i18n/config";
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -17,15 +17,23 @@ export function proxy(request: NextRequest) {
     return;
   }
 
-  const pathnameHasLocale = locales.some(
+  // /en and /en/... → public unprefixed English URLs (preserve indexed root)
+  if (pathname === `/${defaultLocale}` || pathname.startsWith(`/${defaultLocale}/`)) {
+    const url = request.nextUrl.clone();
+    const stripped = pathname.slice(defaultLocale.length + 1) || "/";
+    url.pathname = stripped;
+    return NextResponse.redirect(url);
+  }
+
+  const hasPrefixedLocale = prefixedLocales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
+  if (hasPrefixedLocale) return;
 
-  if (pathnameHasLocale) return;
-
+  // Unprefixed paths are English — rewrite internally to /[locale] without changing the URL
   const url = request.nextUrl.clone();
   url.pathname = `/${defaultLocale}${pathname === "/" ? "" : pathname}`;
-  return NextResponse.redirect(url);
+  return NextResponse.rewrite(url);
 }
 
 export const config = {
