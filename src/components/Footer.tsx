@@ -3,11 +3,9 @@
 import Image from "next/image";
 import { SocialLinks } from "@/components/SocialLinks";
 import { LocaleLink } from "@/components/LocaleLink";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { siteConfig } from "@/lib/site-config";
 import { siteAssets } from "@/lib/site-assets";
 import type { Dictionary } from "@/i18n/dictionaries/types";
-import type { Locale } from "@/i18n/config";
 
 const guideHrefs = [
   "/gta6-pc-release-date",
@@ -33,11 +31,10 @@ const legalHrefs = [
 ] as const;
 
 type FooterProps = {
-  locale: Locale;
   dict: Dictionary;
 };
 
-export function Footer({ locale, dict }: FooterProps) {
+export function Footer({ dict }: FooterProps) {
   const year = new Date().getFullYear();
 
   const guideLabels: Record<(typeof guideHrefs)[number], string> = {
@@ -66,10 +63,6 @@ export function Footer({ locale, dict }: FooterProps) {
   return (
     <footer className="border-t border-border bg-surface">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
-        <div className="mb-8">
-          <LanguageSwitcher current={locale} label={dict.common.language} />
-        </div>
-
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <LocaleLink href="/" className="inline-flex items-center gap-3">

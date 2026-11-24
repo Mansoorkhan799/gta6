@@ -76,29 +76,35 @@ export function Header({ locale, dict }: HeaderProps) {
               {link.label}
             </LocaleLink>
           ))}
+          <div className="ml-2">
+            <LanguageSwitcher current={locale} label={dict.common.language} compact />
+          </div>
           <LocaleLink
             href="/where-to-buy"
-            className="ml-1 rounded bg-accent-pink px-4 py-2 text-xs font-bold uppercase tracking-wider text-black transition-all hover:bg-accent-teal xl:ml-2 xl:px-5 xl:text-sm"
+            className="ml-2 rounded bg-accent-pink px-4 py-2 text-xs font-bold uppercase tracking-wider text-black transition-all hover:bg-accent-teal xl:px-5 xl:text-sm"
           >
             {dict.nav.buyCta}
           </LocaleLink>
         </nav>
 
-        <button
-          type="button"
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded border border-border xl:hidden"
-          onClick={() => setOpen(!open)}
-          aria-expanded={open}
-          aria-label={open ? "Close menu" : "Open menu"}
-        >
-          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            {open ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+        <div className="flex items-center gap-2 xl:hidden">
+          <LanguageSwitcher current={locale} label={dict.common.language} compact />
+          <button
+            type="button"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded border border-border"
+            onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              {open ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -152,9 +158,6 @@ export function Header({ locale, dict }: HeaderProps) {
                     {dict.nav.buyCta}
                   </LocaleLink>
                 </motion.div>
-                <div className="mt-4 border-t border-border pt-4">
-                  <LanguageSwitcher current={locale} label={dict.common.language} />
-                </div>
               </div>
             </motion.nav>
           </>

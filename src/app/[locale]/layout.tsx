@@ -38,7 +38,7 @@ export default async function LocaleLayout({
         <div className="grain-overlay" aria-hidden="true" />
         <Header locale={locale} dict={dict} />
         <main className="flex-1">{children}</main>
-        <Footer locale={locale} dict={dict} />
+        <Footer dict={dict} />
         <ScrollToTop />
       </MotionProvider>
     </div>
