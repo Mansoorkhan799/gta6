@@ -1,21 +1,18 @@
 import { LocaleLink } from "@/components/LocaleLink";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { AnimatedPageHeader } from "@/components/motion/AnimatedPageHeader";
+import type { Dictionary } from "@/i18n/dictionaries/types";
 
-const featuredVideo = {
-  id: "5oO5L3phQ5Y",
-  title: "How to Get GTA 6 on PC — Full Tutorial",
-  caption: "PC download walkthrough for GTA VI",
-};
+const FEATURED_VIDEO_ID = "5oO5L3phQ5Y";
 
-export function TrailerSection() {
+export function TrailerSection({ dict }: { dict: Dictionary }) {
   return (
     <section className="section-padding" aria-labelledby="trailer-heading">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center">
-          <p className="section-label text-accent-teal">Watch Now</p>
+          <p className="section-label text-accent-teal">{dict.trailer.eyebrow}</p>
           <h2 id="trailer-heading" className="display-heading mt-2 tracking-wider">
-            GTA 6 ON PC
+            {dict.trailer.title}
           </h2>
         </ScrollReveal>
 
@@ -23,8 +20,8 @@ export function TrailerSection() {
           <article className="overflow-hidden rounded-lg border border-accent-pink/30 bg-surface-elevated shadow-[0_0_40px_rgba(255,110,180,0.12)]">
             <div className="relative aspect-video">
               <iframe
-                src={`https://www.youtube-nocookie.com/embed/${featuredVideo.id}?rel=0`}
-                title={featuredVideo.title}
+                src={`https://www.youtube-nocookie.com/embed/${FEATURED_VIDEO_ID}?rel=0`}
+                title={dict.trailer.videoTitle}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 loading="lazy"
@@ -32,8 +29,8 @@ export function TrailerSection() {
               />
             </div>
             <div className="p-3 sm:p-4">
-              <h3 className="font-display text-lg tracking-wider sm:text-xl">{featuredVideo.title}</h3>
-              <p className="mt-1 text-xs text-muted sm:text-sm">{featuredVideo.caption}</p>
+              <h3 className="font-display text-lg tracking-wider sm:text-xl">{dict.trailer.videoTitle}</h3>
+              <p className="mt-1 text-xs text-muted sm:text-sm">{dict.trailer.videoCaption}</p>
             </div>
           </article>
         </ScrollReveal>

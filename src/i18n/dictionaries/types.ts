@@ -29,6 +29,35 @@ export type Dictionary = {
     readMore: string;
     home: string;
     language: string;
+    release: string;
+    map: string;
+    gameplay: string;
+    download: string;
+    faq: string;
+    about: string;
+    contact: string;
+    privacy: string;
+    terms: string;
+    disclaimer: string;
+  };
+  trailer: {
+    eyebrow: string;
+    title: string;
+    videoTitle: string;
+    videoCaption: string;
+  };
+  news: {
+    eyebrow: string;
+    title: string;
+    allNews: string;
+    readMore: string;
+  };
+  faq: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    viewAll: string;
+    items: { question: string; answer: string }[];
   };
   hero: {
     eyebrow: string;

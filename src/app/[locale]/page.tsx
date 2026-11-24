@@ -7,9 +7,9 @@ import { DownloadCTA } from "@/components/DownloadCTA";
 import { JsonLd } from "@/components/JsonLd";
 import { createMetadata, faqJsonLd, webPageJsonLd } from "@/lib/seo";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { getGuideContent } from "@/i18n/guide/get-guide";
 import { isLocale, localePath, type Locale } from "@/i18n/config";
 import { notFound } from "next/navigation";
-import { faqs } from "@/lib/content";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -30,6 +30,7 @@ export default async function HomePage({ params }: Props) {
   if (!isLocale(raw)) notFound();
   const locale = raw as Locale;
   const dict = getDictionary(locale);
+  const guide = await getGuideContent(locale);
 
   return (
     <>
@@ -40,14 +41,21 @@ export default async function HomePage({ params }: Props) {
             name: dict.meta.homeTitle,
             description: dict.meta.homeDescription,
           }),
-          faqJsonLd(faqs.map((f) => ({ question: f.question, answer: f.answer }))),
+          faqJsonLd(dict.faq.items),
         ]}
       />
       <Hero dict={dict} />
-      <TrailerSection />
-      <HomeGuide />
-      <NewsSection />
-      <FAQSection limit={8} viewAllLabel={dict.common.readMore} />
+      <TrailerSection dict={dict} />
+      <HomeGuide content={guide} />
+      <NewsSection dict={dict} locale={locale} />
+      <FAQSection
+        limit={8}
+        items={dict.faq.items}
+        eyebrow={dict.faq.eyebrow}
+        title={dict.faq.title}
+        subtitle={dict.faq.subtitle}
+        viewAllLabel={dict.faq.viewAll}
+      />
       <DownloadCTA dict={dict} />
     </>
   );

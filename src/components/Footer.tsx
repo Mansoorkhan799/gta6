@@ -45,14 +45,22 @@ export function Footer({ locale, dict }: FooterProps) {
     "/gta6-ps5": dict.nav.ps5,
     "/gta6-pre-order": dict.nav.preOrder,
     "/gta6-leaks": dict.nav.leaks,
-    "/gta6-release-date": "Release",
-    "/gta6-map": "Map",
-    "/gta6-gameplay": "Gameplay",
+    "/gta6-release-date": dict.common.release,
+    "/gta6-map": dict.common.map,
+    "/gta6-gameplay": dict.common.gameplay,
     "/gta6-reviews": dict.nav.reviews,
     "/where-to-buy": dict.nav.buy,
-    "/gta6-download": "Download",
+    "/gta6-download": dict.common.download,
     "/news": dict.nav.news,
-    "/faq": "FAQ",
+    "/faq": dict.common.faq,
+  };
+
+  const legalLabels: Record<(typeof legalHrefs)[number], string> = {
+    "/about": dict.common.about,
+    "/contact": dict.common.contact,
+    "/privacy-policy": dict.common.privacy,
+    "/terms-of-service": dict.common.terms,
+    "/disclaimer": dict.common.disclaimer,
   };
 
   return (
@@ -105,7 +113,7 @@ export function Footer({ locale, dict }: FooterProps) {
               {legalHrefs.map((href) => (
                 <li key={href}>
                   <LocaleLink href={href} className="text-sm text-muted transition-colors hover:text-accent-teal">
-                    {href.replace("/", "").replace("-", " ")}
+                    {legalLabels[href]}
                   </LocaleLink>
                 </li>
               ))}

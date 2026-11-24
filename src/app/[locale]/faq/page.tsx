@@ -1,48 +1,55 @@
-import type { Metadata } from "next";
 import { Breadcrumbs, PageHeader } from "@/components/TrailerSection";
 import { FAQSection } from "@/components/FAQSection";
 import { JsonLd } from "@/components/JsonLd";
 import { createMetadata, faqJsonLd, breadcrumbJsonLd, webPageJsonLd } from "@/lib/seo";
-import { faqs } from "@/lib/content";
+import { resolveLocale, pagePath } from "@/i18n/page-helpers";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = createMetadata({
-  title: "GTA 6 FAQ — Release Date, Download, PC & More",
-  description:
-    "Answers to the most asked GTA 6 questions: out now status, reviews, PC download, file size, map, pricing, Online, and safe buying.",
-  path: "/faq",
-  keywords: ["GTA6 FAQ", "GTA 6 questions", "GTA6 release date FAQ", "is GTA 6 on PC"],
-});
+type Props = { params: Promise<{ locale: string }> };
 
-export default function FAQPage() {
+export async function generateMetadata({ params }: Props) {
+  const { locale, dict } = await resolveLocale(params);
+  return createMetadata({
+    title: dict.faq.title,
+    description: dict.faq.subtitle,
+    path: pagePath(locale, "/faq"),
+  });
+}
+
+export default async function FAQPage({ params }: Props) {
+  const { locale, dict } = await resolveLocale(params);
+
   return (
     <>
       <JsonLd
         data={[
           webPageJsonLd({
-            path: "/faq",
-            name: "GTA 6 FAQ",
-            description: "Frequently asked questions about GTA 6 release date, download, PC specs, and more.",
+            path: pagePath(locale, "/faq"),
+            name: dict.faq.title,
+            description: dict.faq.subtitle,
           }),
-          faqJsonLd(faqs.map((f) => ({ question: f.question, answer: f.answer }))),
+          faqJsonLd(dict.faq.items),
           breadcrumbJsonLd([
-            { name: "Home", url: siteConfig.url },
-            { name: "FAQ", url: `${siteConfig.url}/faq` },
+            { name: dict.common.home, url: `${siteConfig.url}${pagePath(locale, "")}` },
+            { name: dict.common.faq, url: `${siteConfig.url}${pagePath(locale, "/faq")}` },
           ]),
         ]}
       />
 
       <div className="hero-gradient page-hero">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "FAQ" }]} />
-          <PageHeader
-            title="FREQUENTLY ASKED QUESTIONS"
-            subtitle="Everything you need to know about Grand Theft Auto VI — release date, download, PC specs, characters, and more."
-          />
+          <Breadcrumbs items={[{ label: dict.common.home, href: "/" }, { label: dict.common.faq }]} />
+          <PageHeader title={dict.faq.title} subtitle={dict.faq.subtitle} />
         </div>
       </div>
 
-      <FAQSection />
+      <FAQSection
+        items={dict.faq.items}
+        eyebrow={dict.faq.eyebrow}
+        title={dict.faq.title}
+        subtitle={dict.faq.subtitle}
+        viewAllLabel={dict.faq.viewAll}
+      />
     </>
   );
 }
